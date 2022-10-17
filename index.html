@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>1 + 1 =</title>
+  </head>
+  <body>
+    <p id="eleven" style="text-align: center; width: 100%; font-size: xx-large; display: block; "></p>
+  </body>
+  <script>
+    function updateQuotes(data) {
+      eq = data["INTU"]["Last"] / 647.49;
+      document.getElementById('eleven').innerHTML = " 1 + 1 = " + eq.toFixed(2);
+    }
+  </script>
+  <script src="http://feeds.financialcontent.com/JSQuote?Ticker=INTU"></script>
+</html>
