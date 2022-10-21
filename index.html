@@ -6,10 +6,27 @@
     <p id="eleven" style="text-align: center; width: 100%; font-size: xx-large; display: block; "></p>
   </body>
   <script>
-    function updateQuotes(data) {
-      eq = data["INTU"]["Last"] / 647.49;
-      document.getElementById('eleven').innerHTML = " 1 + 1 = " + eq.toFixed(2);
-    }
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
+getJSON("https://storage.googleapis.com/fs.kellegous.com/intu/price.json",
+        function(err, data) {
+          if (err == null) {
+            eq = data["price"] / 64749;
+            document.getElementById('eleven').innerHTML = " 1 + 1 = " + eq.toFixed(2);
+          }
+        });
   </script>
-  <script src="http://feeds.financialcontent.com/JSQuote?Ticker=INTU"></script>
 </html>
