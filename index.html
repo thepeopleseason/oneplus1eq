@@ -3,7 +3,9 @@
     <title>1 + 1 =</title>
   </head>
   <body>
-    <p id="eleven" style="text-align: center; width: 100%; font-size: xx-large; display: block; "></p>
+    <p style="text-align: center; width: 100%; font-size: 80pt; display: block;">Today, 1 + 1 equals</p>
+    <p id="eleven" style="text-align: center; width: 100%; font-size: 140pt; display: block;"></p>
+    <p style="text-align: center; width: 100%; font-size: 20pt; display: block;">(not 11)</p>
   </body>
   <script>
 var getJSON = function(url, callback) {
@@ -25,7 +27,7 @@ getJSON("https://storage.googleapis.com/fs.kellegous.com/intu/price.json",
         function(err, data) {
           if (err == null) {
             eq = data["price"] / 64749;
-            document.getElementById('eleven').innerHTML = " 1 + 1 = " + eq.toFixed(2);
+            document.getElementById('eleven').innerHTML = eq.toFixed(2);
           }
         });
   </script>
